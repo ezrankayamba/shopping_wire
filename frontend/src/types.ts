@@ -4,6 +4,13 @@ export interface Image {
     orderNum: number
 }
 
+export interface Banner {
+    imgFile: string,
+    id: number,
+    orderNum: number,
+    description: string
+}
+
 export interface Product {
     name: string,
     price: number,

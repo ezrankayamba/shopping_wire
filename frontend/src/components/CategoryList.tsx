@@ -43,15 +43,13 @@ const CategoryList: React.FC<{ title: string; }> = ({ title }) => {
         </IonRow>
         <IonRow>
             <IonCol>
-                <IonSlides options={slideOpts}>
+                <IonSlides options={slideOpts} >
                     {products.map(p => <IonSlide key={p.id}>
-                        <IonCard className="ion-no-margin">
+                        <IonCard className="ion-no-margin ion-padding-top ion-margin-top">
                             <IonCardContent className="ion-no-padding">
                                 <IonImg src={`${BACKEND_URL}/${p.images[0].imgFile}`} style={style}></IonImg>
-                            </IonCardContent>
-                            <IonCardHeader>
                                 <p>{p.name}</p>
-                            </IonCardHeader>
+                            </IonCardContent>
                             <IonItem lines="none">
                                 <IonLabel>TZS {numFmt(p.price)}</IonLabel>
                                 <IonButton fill="outline" slot="end">

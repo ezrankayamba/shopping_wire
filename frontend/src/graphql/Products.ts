@@ -24,3 +24,13 @@ export const GET_PRODUCTS_BY_TAG = gql`
         }
     }
     `
+export const GET_BANNERS = gql`
+    query getBanners{
+        allBanners{
+            id
+            description
+            orderNum
+            imgFile
+        }
+    }
+    `

@@ -45,3 +45,19 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['order_num']
+
+
+class Banner(models.Model):
+    img_file = models.ImageField(upload_to='images')
+    order_num = models.IntegerField(default=0)
+    description = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.img_file.name
+
+    def image_tag(self):
+        return mark_safe(f'<img src="/{self.img_file}" height="100" />')
+    image_tag.short_description = 'Preview'
+
+    class Meta:
+        ordering = ['order_num']

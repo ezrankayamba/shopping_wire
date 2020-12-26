@@ -15,6 +15,11 @@ class ImageAdmin(admin.ModelAdmin):
     list_filter = ['product']
 
 
+class BannerAdmin(admin.ModelAdmin):
+    readonly_fields = ('image_tag',)
+    list_display = ['description', 'img_file', 'image_tag']
+
+
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
@@ -44,4 +49,5 @@ class ProductAdmin(admin.ModelAdmin):
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Tag)
 admin.site.register(Category)
+admin.site.register(Banner, BannerAdmin)
 admin.site.register(Product, ProductAdmin)
