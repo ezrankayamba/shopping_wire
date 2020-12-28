@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCol, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonSlide, IonSlides } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonCol, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonSlide, IonSlides } from "@ionic/react";
 import { add } from "ionicons/icons";
 import React from "react"
 import { BACKEND_URL } from "../config";
@@ -47,7 +47,7 @@ const CategoryList: React.FC<{ title: string; }> = ({ title }) => {
                     {products.map(p => <IonSlide key={p.id}>
                         <IonCard className="ion-no-margin ion-padding-top ion-margin-top">
                             <IonCardContent className="ion-no-padding">
-                                <IonImg src={`${BACKEND_URL}/${p.images[0].imgFile}`} style={style}></IonImg>
+                                <IonImg src={`${BACKEND_URL}/media/${p.images[0].imgFile}`} style={style}></IonImg>
                                 <p>{p.name}</p>
                             </IonCardContent>
                             <IonItem lines="none">

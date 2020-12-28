@@ -40,7 +40,7 @@ class Image(models.Model):
         return self.img_file.name
 
     def image_tag(self):
-        return mark_safe(f'<img src="/{self.img_file}" height="100" />')
+        return mark_safe(f'<img src="/media/{self.img_file}" height="100" />')
     image_tag.short_description = 'Preview'
 
     class Meta:
@@ -56,7 +56,7 @@ class Banner(models.Model):
         return self.img_file.name
 
     def image_tag(self):
-        return mark_safe(f'<img src="/{self.img_file}" height="100" />')
+        return mark_safe(f'<img src="/media/{self.img_file}" height="100" />')
     image_tag.short_description = 'Preview'
 
     class Meta:

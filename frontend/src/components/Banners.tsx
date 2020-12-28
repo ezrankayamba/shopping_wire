@@ -17,7 +17,7 @@ const Banners: React.FC = () => {
     return (
         <IonSlides>
             {banners.map(b => <IonSlide key={b.id}>
-                <IonImg src={`${BACKEND_URL}/${b.imgFile}`}></IonImg>
+                <IonImg src={`${BACKEND_URL}/media/${b.imgFile}`}></IonImg>
             </IonSlide>)}
         </IonSlides>
     );
