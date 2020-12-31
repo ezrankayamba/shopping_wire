@@ -5,12 +5,11 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'd^)6^+__18ocb+5yvq0lx&5hd-cjy#*4c_bd^$h3gi$k9$gj0w'
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', 'web-shop2.loca.lt', 'api-shop.loca.lt', '127.0.0.1']
+my_host = 'api-shop.jprq.live'
+ALLOWED_HOSTS = ['localhost', my_host, '127.0.0.1']
 # CORS_ORIGIN_WHITELIST = ['http://localhost:8100']
 
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +44,8 @@ MIDDLEWARE = [
 # ]
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8100',
-    'https://web-shop2.loca.lt'
+    'http://127.0.0.1:8100',
+    'https://web-shop.loca.lt'
 ]
 
 ROOT_URLCONF = 'backend.urls'
