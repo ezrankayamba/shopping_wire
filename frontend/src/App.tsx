@@ -22,6 +22,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/main.css'
 import { albumsOutline, cartOutline, homeOutline, personOutline } from 'ionicons/icons';
 import Header from './components/Header';
 import Categories from './pages/Category';
@@ -38,7 +39,7 @@ const App: React.FC = () => (
         <IonReactRouter>
           <IonTabs>
             <IonRouterOutlet>
-              <IonContent class="ion-padding">
+              <IonContent>
                 <Route path="/:tab(home)" component={Home} exact={true} />
                 <Route path="/:tab(category)" component={Categories} exact={true} />
                 <Route path="/:tab(cart)" component={Cart} exact={true} />

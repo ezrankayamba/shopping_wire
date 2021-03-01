@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { IonButton, IonCard, IonCardContent, IonCol, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonRow, IonSlide, IonSlides } from "@ionic/react";
-import { add } from "ionicons/icons";
+import { IonButton, IonCard, IonCardContent, IonCol, IonGrid, IonImg, IonLabel, IonRow, IonSlide, IonSlides } from "@ionic/react";
 import React from "react"
 import { BACKEND_URL } from "../config";
 import { GET_PRODUCTS_BY_TAG } from "../graphql/Products";
@@ -13,7 +12,7 @@ const CategoryList: React.FC<{ title: string; }> = ({ title }) => {
         initialSlide: 0,
         speed: 400,
         slidesPerView: 1.75,
-        spaceBetween: 10
+        spaceBetween: 0
     };
     const style = {
         height: '120px'
@@ -45,17 +44,12 @@ const CategoryList: React.FC<{ title: string; }> = ({ title }) => {
             <IonCol>
                 <IonSlides options={slideOpts} >
                     {products.map(p => <IonSlide key={p.id}>
-                        <IonCard className="ion-no-margin ion-padding-top ion-margin-top">
-                            <IonCardContent className="ion-no-padding">
-                                <IonImg src={`${BACKEND_URL}/media/${p.images[0].imgFile}`} style={style}></IonImg>
+                        <IonCard className="category-box ion-no-margin">
+                            <IonImg src={`${BACKEND_URL}/media/${p.images[0].imgFile}`} style={style}></IonImg>
+                            <IonCardContent>
                                 <p>{p.name}</p>
+                                <IonLabel><small>TZS {numFmt(p.price)}</small></IonLabel>
                             </IonCardContent>
-                            <IonItem lines="none">
-                                <IonLabel>TZS {numFmt(p.price)}</IonLabel>
-                                <IonButton fill="outline" slot="end">
-                                    <IonIcon icon={add} />
-                                </IonButton>
-                            </IonItem>
                         </IonCard>
                     </IonSlide>)}
                 </IonSlides>

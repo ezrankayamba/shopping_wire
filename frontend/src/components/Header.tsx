@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
     const noPadding = {
         padding: 0
     };
-    return <IonHeader className="ion-no-border">
+    return <IonHeader className="ion-no-border2">
         <IonToolbar>
             <IonGrid>
                 <IonRow className="ion-align-items-center">

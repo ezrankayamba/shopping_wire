@@ -34,3 +34,20 @@ export const GET_BANNERS = gql`
         }
     }
     `
+export const GET_CATEGORIES = gql`
+    query {
+        allCategories{
+            products {
+                id
+            }
+            name
+            id
+            subCategories{
+                id
+                name
+                image
+            }
+            icon
+        }
+    }
+  `

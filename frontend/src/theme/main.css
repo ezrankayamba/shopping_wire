@@ -1,0 +1,117 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.category-list {
+  margin-top: 1em;
+}
+
+.category-list ion-slide {
+  padding-bottom: 1em;
+}
+
+ion-card {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: 1px solid #f3f3f3;
+}
+
+.split-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: calc(100vh - 7em);
+}
+
+.split-container .tabs {
+  min-width: 5.5em;
+  max-width: 20%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.split-container .tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.button-icon-top {
+  max-width: 6.4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .4em;
+  padding: .7em;
+  background: #f7f7f7;
+  color: #777;
+  border-bottom: 1px solid #f3f3f3;
+  word-break: break-all;
+}
+
+.button-icon-top ion-label {
+  font-size: .7em;
+  text-align: center;
+}
+
+.button-icon-top.active {
+  background: #ffffff;
+  position: relative;
+}
+
+.button-icon-top.active::before {
+  content: "";
+  width: 2px;
+  height: 40%;
+  background: #f8b231;
+  position: absolute;
+  left: 0;
+  top: 30%;
+}
+
+.category-box ion-img {
+  background: #f3f3f3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sub-categories .items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  padding-top: 1em;
+  gap: .4em;
+}
+
+.sub-categories .items > div {
+  border: 1px solid #EEE;
+  padding: .4em;
+  word-break: break-all;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.sub-categories .items > div ion-img {
+  background: #f3f3f3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=main.css.map */

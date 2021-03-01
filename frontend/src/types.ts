@@ -19,3 +19,15 @@ export interface Product {
     units: string,
     description: string
 }
+export interface SubCategory {
+    id: number,
+    name: string,
+    image: Image
+}
+export interface Category {
+    id: number,
+    name: string,
+    icon: string,
+    products: Product[],
+    subCategories: SubCategory[]
+}

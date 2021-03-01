@@ -3,10 +3,21 @@ from graphene_django import DjangoObjectType
 from products.models import *
 
 
+class SubCategoryType(DjangoObjectType):
+    class Meta:
+        model = SubCategory
+        fields = '__all__'
+
+
 class CategoryType(DjangoObjectType):
+    sub_categories = graphene.List(SubCategoryType)
+
     class Meta:
         model = Category
-        fields = ("id", "name", "products")
+        fields = ('id', 'name', 'products', 'sub_categories', 'icon')
+
+    def resolve_sub_categories(self, info):
+        return self.sub_categories.all()
 
 
 class TagType(DjangoObjectType):
@@ -40,7 +51,9 @@ class Query(graphene.ObjectType):
     products_by_tag = graphene.List(ProductType, name=graphene.String(required=True))
 
     def resolve_all_categories(root, info):
-        return Category.objects.select_related("products").all()
+        qs = Category.objects.all()
+        # print(qs.first(), qs.first().sub_categories.all())
+        return qs
 
     def resolve_all_banners(root, info):
         return Banner.objects.all()
