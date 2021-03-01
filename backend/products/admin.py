@@ -57,19 +57,26 @@ class ProductAdmin(admin.ModelAdmin):
         return ', '.join([tag.name for tag in obj.tags.all()])
 
 
+class SubCategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category', 'image_tag')
+    list_filter = ['category']
+
+
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [
         SubCategoryInline,
     ]
     form = CategoryForm
+    list_display = ('name', 'icon', 'position', 'sub_categories')
+    list_filter = []
 
-    def product_tags(self, obj):
-        return ', '.join([tag.name for tag in obj.tags.all()])
+    def sub_categories(self, obj):
+        return ', '.join([sub.name for sub in obj.sub_categories.all()])
 
 
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Tag)
-admin.site.register(SubCategory)
+admin.site.register(SubCategory, SubCategoryAdmin)
 # admin.site.register(Category)
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Product, ProductAdmin)

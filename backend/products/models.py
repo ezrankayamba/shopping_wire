@@ -18,7 +18,11 @@ class Category(models.Model):
 class SubCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE, related_name='sub_categories')
-    image = models.ImageField(upload_to='images', null=True)
+    image = models.ImageField(upload_to='images', null=False, default='images/default_sub_category.jpg')
+
+    def image_tag(self):
+        return mark_safe(f'<img src="/media/{self.image}" height="100" />')
+    image_tag.short_description = 'Preview'
 
     def __str__(self):
         return self.name
