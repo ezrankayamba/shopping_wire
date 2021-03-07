@@ -42,6 +42,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=400)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE, related_name='products')
+    sub_category = models.ForeignKey(to=SubCategory, on_delete=models.CASCADE, related_name='products', null=True)
     price = models.DecimalField(decimal_places=2, max_digits=20)
     units = models.CharField(max_length=10)
     tags = models.ManyToManyField(to=Tag, related_name='products')
