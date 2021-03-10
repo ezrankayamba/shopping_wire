@@ -31,3 +31,7 @@ export interface Category {
     products: Product[],
     subCategories: SubCategory[]
 }
+
+export interface IdParam {
+    id: string
+}

@@ -49,10 +49,14 @@ class Query(graphene.ObjectType):
     all_tags = graphene.List(TagType)
     all_banners = graphene.List(BannerType)
     products_by_tag = graphene.List(ProductType, name=graphene.String(required=True))
+    sub_category = graphene.Field(SubCategoryType, id=graphene.Int(required=True))
 
     def resolve_all_categories(root, info):
         qs = Category.objects.all()
-        # print(qs.first(), qs.first().sub_categories.all())
+        return qs
+
+    def resolve_sub_category(root, info, id):
+        qs = SubCategory.objects.get(id=id)
         return qs
 
     def resolve_all_banners(root, info):

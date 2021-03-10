@@ -1,10 +1,11 @@
-import { IonLabel } from '@ionic/react';
+import { IonContent, IonLabel } from '@ionic/react';
 import { useQuery } from "@apollo/client";
 import React, { useState } from 'react';
 import { GET_CATEGORIES } from '../graphql/Products';
 import { Category } from "../types"
 import SubCategories from '../components/SubCategories';
 import MyIcon from '../components/MyIcon';
+import Header from '../components/Header';
 
 const Categories: React.FC = () => {
   const [active, setActive] = useState(0)
@@ -23,18 +24,23 @@ const Categories: React.FC = () => {
   let category: Category = categoryList.find((cat: Category) => cat.id === active) || categoryList[0]
 
   return (
-    <div className="split-container">
-      <div className="tabs">
-        {categoryList.map((cat: Category) => <div key={cat.id} className={`button-icon-top${category.id === cat.id ? " active" : ""}`} onClick={() => setActive(cat.id)}>
-          <MyIcon name={cat.icon} />
-          <IonLabel>{cat.name}</IonLabel>
-        </div>)
-        }
-      </div>
-      <div className="tab-content">
-        <SubCategories category={category} />
-      </div>
-    </div>
+    <>
+      <Header />
+      <IonContent>
+        <div className="split-container">
+          <div className="tabs">
+            {categoryList.map((cat: Category) => <div key={cat.id} className={`button-icon-top${category.id === cat.id ? " active" : ""}`} onClick={() => setActive(cat.id)}>
+              <MyIcon name={cat.icon} />
+              <IonLabel>{cat.name}</IonLabel>
+            </div>)
+            }
+          </div>
+          <div className="tab-content">
+            <SubCategories category={category} />
+          </div>
+        </div>
+      </IonContent>
+    </>
   );
 };
 

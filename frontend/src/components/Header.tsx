@@ -1,5 +1,5 @@
 import React from "react"
-import { IonButton, IonButtons, IonCol, IonGrid, IonHeader, IonIcon, IonRow, IonSearchbar, IonToolbar } from "@ionic/react"
+import { IonBackButton, IonButton, IonButtons, IonCol, IonGrid, IonHeader, IonIcon, IonRow, IonSearchbar, IonToolbar } from "@ionic/react"
 import { chatboxEllipsesOutline, heartOutline, qrCodeOutline } from "ionicons/icons";
 
 export const Header: React.FC = () => {
@@ -12,6 +12,7 @@ export const Header: React.FC = () => {
                 <IonRow className="ion-align-items-center">
                     <IonCol size="auto" className="ion-no-padding">
                         <IonButtons>
+                            <IonBackButton />
                             <IonButton>
                                 <IonIcon icon={qrCodeOutline} />
                             </IonButton>

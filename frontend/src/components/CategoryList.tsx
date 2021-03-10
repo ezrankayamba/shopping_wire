@@ -31,7 +31,7 @@ const CategoryList: React.FC<{ title: string; }> = ({ title }) => {
     console.log(title, products)
 
 
-    return <IonGrid className="ion-no-padding category-list">
+    return <IonGrid className="ion-padding category-list">
         <IonRow className="ion-align-items-center">
             <IonCol>{title}</IonCol>
             <IonCol size="auto">
